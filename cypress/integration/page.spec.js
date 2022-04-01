@@ -5,13 +5,14 @@ describe('Page', () => {
     cy.visit('/');
   });
 
-  it('should have 5 films on it', () => {
+  it('should have all films on it', () => {
     cy.getByDataCy('card')
       .should('have.length', movies.length);
   });
 
   it('should contain films with images', () => {
     cy.getByDataCy('card')
+      .eq(0)
       .find(`[src="${movies[0].imgUrl}"]`)
       .should('exist');
   });
